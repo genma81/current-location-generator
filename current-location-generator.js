@@ -12,7 +12,7 @@ const getCurrentLocation = () => {
     var m = parseInt((dd - d) * 60)
     var s = (dd - d - m / 60) * 3600
 
-    return d.toString() + '°' + m.toString() + '\'' + s.toFixed(2) + '\"'
+    return d.toString() + '°' + m.toString() + '\'' + s.toFixed(3) + '\"'
   }
 
   function getCoordinates(res) {
@@ -42,11 +42,9 @@ const getCurrentLocation = () => {
         return position
       })
       .then(res => {
-        let url = 'https://www.google.com.my/maps/place/' + position.latitudedms + '+' + position.longitudedms + '/@' + position.latitude + ',' + position.longitude + ',20z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d' + position.latitude + '!4d' + position.longitude
-        console.log(window.alert(url))
-        console.log(res)
+        let url = 'https://www.google.com.my/maps/place/' + position.latitudedms + '+' + position.longitudedms + '/@' + position.latitude + ',' + position.longitude + ',17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d' + position.latitude + '!4d' + position.longitude
+        window.alert(url)
+        console.log(url)
       })
   }
 }
-
-export { getCurrentLocation }
